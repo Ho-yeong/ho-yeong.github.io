@@ -1,0 +1,141 @@
+baseURL: "https://tech.kloom.io/"
+title: Kloom Tech Blog
+pagination:
+  paperSize: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Kloom Tech Blog
+  description: "Kloom.io's technical blog focusing on cutting-edge solutions."
+  keywords: [Kloom, Tech, Blog, PaperMod]
+  author: Kloom Team
+  images: ["/logo/favicon.png"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: dark # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    favicon: "/logo/favicon.ico"
+    favicon16x16: "/logo/favicon.ico"
+    favicon32x32: "/logo/android-icon-36x36.png"
+    favicon96x96: "/logo/favicon-96x96.png"
+    apple_touch_icon: "/logo/apple-touch-icon.png"
+    safari_pinned_tab: "/logo/ms-icon-144x144.png"
+    android_icon_192x192: "/logo/android-icon-192x192.png"
+    manifest: "/logo/manifest.json"
+
+
+  label:
+    text: "Home"
+    icon: /logo/apple-touch-icon.png
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: false # needs to be explicitly set
+    title: Kloom Tech Blog
+    subtitle: "Your go-to source for technical insights."
+    imageUrl: "/profile-image.png"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "Profile Image"
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
+
+  # home-info mode
+  homeInfoParams:
+    Title: "Welcome to Kloom.io 👋"
+    Content: Explore our latest posts and technical updates.
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/hoyeong-jo-7547351a7/"
+
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "https://github.com/kloom-tech/tech-blog/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: example
+      name: Visit Kloom.io
+      url: https://kloom.io
+      weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+    
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search

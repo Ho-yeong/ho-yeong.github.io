@@ -1,0 +1,32 @@
+[[main]]
+    identifier = "posts"
+    name = "Post"
+    url = "/"
+    weight = 1
+
+[[main]]
+    identifier = "about"
+    name = "About us"
+    url = "/about"
+    weight = 2
+
+[[main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories"
+    weight = 3
+
+[[main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags"
+    weight = 4
+
+
+# Social Media Configuration
+
+#[[social]]
+#    identifier = "linkedIn"
+#    name = "LinkedIn"
+#    url = "https://www.linkedin.com/in/hoyeong-jo-7547351a7/"
+#    weight = 1

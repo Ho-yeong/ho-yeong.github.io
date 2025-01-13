@@ -1,0 +1,46 @@
+﻿# Homepage Config
+isSinglePage: true
+
+# Meta Config
+description: "Kloom - 지금 바로 공유를 시작하세요. "
+
+# Header Configuration
+avatar: "img/Kloom.jpg"
+
+# Favicon
+favicon: "icons/favicon.ico"
+favicon16x16: "icons/favicon.ico"
+
+# Keyword
+keywords:
+  - "kloom"
+  - "video communication"
+  - "비디오 협업"
+  - "커뮤니케이션 툴"
+  - "productivity"
+  - "협업툴"
+  - "비디오협업툴"
+  - "영상공유"
+
+# Disqus is a comment system. see https://disqus.com
+disqusShortname: ""
+
+# Emoji Configuration
+emoji:
+  enableEmoji: true
+
+# Giscus is a comment system based on GitHub Discussions. see https://giscus.app
+giscus:
+  enable: false
+  repo: ""
+  repoId: ""
+  category: "Announcements"
+  categoryId: ""
+  # mapping: "pathname"  # comment value is the default value
+  # strict: 0
+  # reactionsEnabled: 1
+  # emitMetadata: 0
+  # inputPosition: "top"
+  # theme: "light"
+  # lang: "zh-CN"
+  # lazyLoading: true
