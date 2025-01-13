@@ -26,8 +26,6 @@ _testmain.go
 .env.build
 node_modules
 public
-
-/public
 .DS_Store
 .hugo_build.lock
 resources/_gen/

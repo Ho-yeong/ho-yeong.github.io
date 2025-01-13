@@ -1,0 +1,35 @@
+﻿
+{{- with .Params.sns }}
+<div class="mt-8">
+    <h3 class="font-bold text-lg mb-4">Meet Our Team</h3>
+    <div class="flex flex-wrap gap-6">
+        {{ range . }}
+        <div class="flex flex-col items-center w-36">
+            <!-- 아바타 영역 -->
+            <div class="flex-none w-20 h-20 rounded-full overflow-hidden shadow-md mb-2">
+                <a href="{{ .snsURL | default "#" }}" target="_blank" rel="noopener noreferrer">
+                <img
+                        src="{{ .imageURL }}"
+                        alt="{{ .name }}"
+                        class="object-cover w-full h-full"
+                />
+                </a>
+            </div>
+
+            <!-- 텍스트 정보 -->
+            <div class="text-center">
+                <p class="font-semibold mb-1">{{ .name }}</p>
+                <a
+                        href="{{ .snsURL | default "#" }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-blue-500 hover:underline text-sm"
+                >
+                {{ .snsInfo }}
+                </a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -7,7 +7,7 @@ title = 'Hello! Kloom Tech'
 enableRobotsTXT = true
 summaryLength = 15
 paginate = 5
-
+ignoreLogs = ['warning-goldmark-raw-html']
 
 [markup]
   [markup.highlight]

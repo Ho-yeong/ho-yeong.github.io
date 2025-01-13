@@ -1,0 +1,88 @@
+{{- /* head.html 혹은 <head> 내에 삽입할 partial 예시 */ -}}
+    {{ $isHome := .IsHome }}
+    {{ $isPage := .IsPage }}
+    {{ $isNode := .IsNode }}
+
+    <!-- 기본 메타 설정 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        {{ if $isHome -}}
+        {{ .Site.Title }}
+        {{ else -}}
+        {{ .Title }} | {{ .Site.Title }}
+        {{ end -}}
+    </title>
+
+    <!-- SEO: Description (한 문장, 한글) -->
+    <meta name="description"
+          content="{{ if $isPage -}}
+             {{ or .Params.description .Summary | default "비디오 커뮤니케이션 툴 kloom을 소개합니다." }}
+    {{ else if $isHome -}}
+    {{ .Site.Params.description | default "비디오 커뮤니케이션 툴 kloom을 소개합니다." }}
+    {{ else if $isNode -}}
+    {{ or .Params.description .Summary | default "비디오 커뮤니케이션 툴 kloom을 소개합니다." }}
+    {{ end -}}"
+    />
+
+    {{- /* 사용자가 작성한 키워드 배열이 없으면 기본 값 사용 */ -}}
+    {{- $defaultKeywords := slice
+    "kloom"
+    "video communication"
+    "비디오 협업"
+    "remote collaboration"
+    "커뮤니케이션 툴"
+    "productivity"
+    -}}
+    {{- $keywords := or .Site.Params.keywords $defaultKeywords -}}
+
+    <!-- SEO: Keywords -->
+    <meta name="keywords" content="{{ delimit $keywords ", " }}" />
+
+    <!-- Canonical & Robots -->
+    <link rel="canonical" href="{{ .Permalink }}" />
+    <link rel="robots" href="/robots.txt" />
+
+    <!-- favicon 목록 (icons 폴더) -->
+    <!-- 필요에 따라 absURL, relURL, baseURL 등 사용 -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" href="/icons/apple-icon.png"> <!-- 180x180 or 일반 -->
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png">
+    <link rel="manifest" href="/icons/manifest.json">
+
+    <meta name="msapplication-TileColor" content="#2e2e33">
+    <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#2e2e33" />
+
+    <!-- .Params.preloadImages가 있으면 미리 로드 -->
+    {{ with .Params.preloadImages }}
+    {{ range . }}
+    <link rel="preload" as="image" href="{{ . | absURL }}">
+    {{ end }}
+    {{ end }}
+
+    <!-- 구글 애널리틱스 (예시) -->
+    {{ with .Site.Config.Services.GoogleAnalytics.ID }}
+    <script defer src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ . }}');
+    </script>
+    {{ end }}
