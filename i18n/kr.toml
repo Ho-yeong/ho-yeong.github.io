@@ -1,0 +1,17 @@
+[latestPosts]
+other = '최신 게시물'
+
+[readMore]
+other = '더 읽기'
+
+[summary]
+other = '요약'
+
+[estimatedReadingTime]
+other = '예상 읽기 시간: %d분'
+
+[404_title]
+other = '페이지를 찾을 수 없습니다'
+
+[404_text]
+other = "잘못된 링크를 클릭했거나 이 사이트에 없는 URL을 입력한 것 같습니다."
