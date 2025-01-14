@@ -9,6 +9,9 @@ summaryLength = 15
 paginate = 5
 ignoreLogs = ['warning-goldmark-raw-html']
 
+[permalinks]
+  blog = "/:year/:month/:title/"
+
 [markup]
   [markup.highlight]
     anchorLineNos = false
